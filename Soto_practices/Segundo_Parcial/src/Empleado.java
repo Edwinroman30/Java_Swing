@@ -3,6 +3,8 @@ public class Empleado {
 //    private String nombre;
 //    private String cedula; 
     private double salario;
+    
+    //FORMATO DE ENTRADA (DÍA-MES-AÑO)
     private double fecha_entrada[];
     private double fecha_salida[];
     

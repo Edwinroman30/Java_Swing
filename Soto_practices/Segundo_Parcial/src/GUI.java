@@ -31,21 +31,208 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_title = new javax.swing.JLabel();
+        lbl_salario = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtArea = new javax.swing.JTextArea();
+        tbox_salario = new javax.swing.JTextField();
+        btnCalcular = new javax.swing.JButton();
+        lbl_fechaIngreso = new javax.swing.JLabel();
+        lbl_meses1 = new javax.swing.JLabel();
+        lbl_anio1 = new javax.swing.JLabel();
+        lbl_anio2 = new javax.swing.JLabel();
+        lbl_fechaRetiro = new javax.swing.JLabel();
+        JS_dia_fechaRetiro = new javax.swing.JSpinner();
+        JS_anio_fechaRetiro = new javax.swing.JSpinner();
+        lbl_dia2 = new javax.swing.JLabel();
+        lbl_meses2 = new javax.swing.JLabel();
+        lbl_presuspuestado = new javax.swing.JLabel();
+        ckPresupuestado = new javax.swing.JCheckBox();
+        JS_meses_fechaRetiro = new javax.swing.JSpinner();
+        JS_anio_fechaIngreso = new javax.swing.JSpinner();
+        JS_meses_fechaIngreso = new javax.swing.JSpinner();
+        JS_dia_fechaIngreso = new javax.swing.JSpinner();
+        lbl_dia1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        lbl_title.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_title.setText("Calculadora de Prestaciones Laborales");
+
+        lbl_salario.setText("Salario:");
+
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
+
+        tbox_salario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbox_salarioActionPerformed(evt);
+            }
+        });
+
+        btnCalcular.setText("Calcular");
+
+        lbl_fechaIngreso.setText("Fecha Ingreso:");
+
+        lbl_meses1.setText("Mes");
+
+        lbl_anio1.setText("Año");
+
+        lbl_anio2.setText("Año");
+
+        lbl_fechaRetiro.setText("Fecha Retiro:");
+
+        JS_dia_fechaRetiro.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 31.0d, 1.0d));
+
+        JS_anio_fechaRetiro.setModel(new javax.swing.SpinnerNumberModel(1993.0d, 1993.0d, null, 1.0d));
+
+        lbl_dia2.setText("Día");
+
+        lbl_meses2.setText("Mes");
+
+        lbl_presuspuestado.setText("¿Fue usted  preavisado?");
+
+        JS_meses_fechaRetiro.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 12.0d, 1.0d));
+
+        JS_anio_fechaIngreso.setModel(new javax.swing.SpinnerNumberModel(1993.0d, 1993.0d, null, 1.0d));
+
+        JS_meses_fechaIngreso.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 12.0d, 1.0d));
+
+        JS_dia_fechaIngreso.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 31.0d, 1.0d));
+
+        lbl_dia1.setText("Día");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(15, 15, 15)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tbox_salario)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                            .addGap(8, 8, 8)
+                                                            .addComponent(JS_dia_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                            .addGap(21, 21, 21)
+                                                            .addComponent(lbl_dia2)))
+                                                    .addGap(0, 0, Short.MAX_VALUE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(0, 28, Short.MAX_VALUE)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(lbl_presuspuestado)
+                                                        .addComponent(JS_meses_fechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                    .addComponent(lbl_anio2)
+                                                    .addGap(35, 35, 35))
+                                                .addComponent(JS_anio_fechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(JS_anio_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(ckPresupuestado)))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(37, 37, 37)
+                                    .addComponent(lbl_dia1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lbl_meses1)
+                                    .addGap(66, 66, 66)
+                                    .addComponent(lbl_anio1)
+                                    .addGap(30, 30, 30))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(26, 26, 26)
+                                    .addComponent(JS_dia_fechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(28, 28, 28)
+                                    .addComponent(JS_meses_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(103, 103, 103)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(10, 10, 10)
+                                            .addComponent(lbl_meses2))
+                                        .addComponent(lbl_fechaRetiro))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addComponent(lbl_salario))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(lbl_fechaIngreso)))
+                        .addGap(77, 77, 77)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(lbl_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(lbl_title)
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbl_salario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tbox_salario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(lbl_fechaIngreso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_meses1)
+                            .addComponent(lbl_anio1)
+                            .addComponent(lbl_dia1))
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JS_anio_fechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JS_meses_fechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JS_dia_fechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addComponent(lbl_fechaRetiro)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_meses2)
+                            .addComponent(lbl_anio2)
+                            .addComponent(lbl_dia2))
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(JS_anio_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JS_meses_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JS_dia_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ckPresupuestado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_presuspuestado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(btnCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tbox_salarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbox_salarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbox_salarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,5 +270,27 @@ public class GUI extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner JS_anio_fechaIngreso;
+    private javax.swing.JSpinner JS_anio_fechaRetiro;
+    private javax.swing.JSpinner JS_dia_fechaIngreso;
+    private javax.swing.JSpinner JS_dia_fechaRetiro;
+    private javax.swing.JSpinner JS_meses_fechaIngreso;
+    private javax.swing.JSpinner JS_meses_fechaRetiro;
+    private javax.swing.JButton btnCalcular;
+    private javax.swing.JCheckBox ckPresupuestado;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_anio1;
+    private javax.swing.JLabel lbl_anio2;
+    private javax.swing.JLabel lbl_dia1;
+    private javax.swing.JLabel lbl_dia2;
+    private javax.swing.JLabel lbl_fechaIngreso;
+    private javax.swing.JLabel lbl_fechaRetiro;
+    private javax.swing.JLabel lbl_meses1;
+    private javax.swing.JLabel lbl_meses2;
+    private javax.swing.JLabel lbl_presuspuestado;
+    private javax.swing.JLabel lbl_salario;
+    private javax.swing.JLabel lbl_title;
+    private javax.swing.JTextField tbox_salario;
+    private javax.swing.JTextArea txtArea;
     // End of variables declaration//GEN-END:variables
 }

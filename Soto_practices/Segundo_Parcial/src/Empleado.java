@@ -2,15 +2,13 @@ public class Empleado {
     
 //    private String nombre;
 //    private String cedula; 
-    private double salario;
+      private double salario;
     
     //FORMATO DE ENTRADA (DÍA-MES-AÑO)
-    private double fecha_entrada[];
-    private double fecha_salida[];
+    private double fechaEntrada[];
+    private double fechaSalida[];
     
-    public Empleado(){
-        
-    }
+    public Empleado(){     }
 
     public double getSalario() {
         return salario;
@@ -22,38 +20,38 @@ public class Empleado {
         }
     }
 
-    public double[] getFecha_entrada() {
-        return fecha_entrada;
+    public double[] getFechaEntrada() {
+        return this.fechaEntrada;
     }
 
-    public void setFecha_entrada(double[] fecha_entrada) {
+    public void setFechaEntrada(double[] fecha_entrada) {
         
         for(double fech : fecha_entrada ){
             if(fech < 0){
-                this.fecha_entrada[0] = 0;
-                this.fecha_entrada[1] = 0;
-                this.fecha_entrada[2] = 0;
+                this.fechaEntrada[0] = 0;
+                this.fechaEntrada[1] = 0;
+                this.fechaEntrada[2] = 0;
             }
             else{
-                this.fecha_entrada = fecha_entrada;
+                this.fechaEntrada = fecha_entrada;
             }
         }     
     }
 
-    public double[] getFecha_salida() {
-        return fecha_salida;
+    public double[] getFechaSalida() {
+        return this.fechaSalida;
     }
 
-    public void setFecha_salida(double[] fecha_salida) {
+    public void setFechaSalida(double[] fecha_salida) {
         
         for(double fech : fecha_salida ){
             if(fech < 0){
-                this.fecha_salida[0] = 0;
-                this.fecha_salida[1] = 0;
-                this.fecha_salida[2] = 0;
+                this.fechaSalida[0] = 0;
+                this.fechaSalida[1] = 0;
+                this.fechaSalida[2] = 0;
             }
             else{
-                this.fecha_salida = fecha_salida;
+                this.fechaSalida = fecha_salida;
             }
         } 
     }

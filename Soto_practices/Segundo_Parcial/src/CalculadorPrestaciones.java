@@ -29,22 +29,22 @@ public class CalculadorPrestaciones {
         this.salarioDiario = empleado.getSalario() / 23.83;
     }
     
-   private void calcularTiempoLaboracion(Empleado empleado){
+    private void calcularTiempoLaboracion(Empleado empleado){
     
-    double[] fechaEntrada = empleado.getFecha_entrada();
-    double[] fechaSalida = empleado.getFecha_salida();
+    double[] fechaEntrada = empleado.getFechaEntrada();
+    double[] fechaSalida = empleado.getFechaSalida();
     
-    double[] fecha = {0,0,0};
+    double[] fecha_final = {0,0,0};
     
     // Resta decimal con los días.	 
       if(fechaSalida[0] < fechaEntrada[0]){
           
          fechaSalida[1]= fechaSalida[1] - 1;      
-         fecha[0] =  ((fechaSalida[0]+30) - fechaEntrada[0]);
+         fecha_final[0] =  ((fechaSalida[0]+30) - fechaEntrada[0]);
          
        }
        else{
-       	     fecha[0] = (fechaSalida[0] - fechaEntrada[0]);
+       	     fecha_final[0] = (fechaSalida[0] - fechaEntrada[0]);
        }
        
        
@@ -52,25 +52,23 @@ public class CalculadorPrestaciones {
        if((fechaSalida[1] < fechaEntrada[1]) ){
             
             fechaSalida[2]= fechaSalida[2] - 1;
-            fecha[1] =  (fechaSalida[1]+12) - fechaEntrada[1];
+            fecha_final[1] =  (fechaSalida[1]+12) - fechaEntrada[1];
        }
        else{
-       	     fecha[1] = (fechaSalida[1] - fechaEntrada[1]);
+       	     fecha_final[1] = (fechaSalida[1] - fechaEntrada[1]);
        }
        
        
     // Resta decimal con los años.	 
        if(((fechaSalida[2] < fechaEntrada[2]) || fechaSalida[2] == fechaEntrada[2]) ){
             
-            fecha[2] =  0;
+            fecha_final[2] =  0;
        }
        else{
-       	     fecha[2] = (fechaSalida[2] - fechaEntrada[2]);
+       	     fecha_final[2] = (fechaSalida[2] - fechaEntrada[2]);
        }
-           
-    System.out.println("" + fecha[0]+ " - " + fecha[1]+ " - " +fecha[2]);
-       
-       
+    
+        this.tiempoLaboracion = fecha_final;
    }
    
     
@@ -79,5 +77,13 @@ public class CalculadorPrestaciones {
     public void calculoPrestacionVacacional(){}
     public void checkEstadoPreaviso(){}
     public void calculoPrestacionPreaviso(){}
+
+    public double getSalarioDiario() {
+        return this.salarioDiario;
+    }
+
+    public double getSalarioPromedioMensual() {
+        return this.salarioPromedioMensual;
+    }
 
 }

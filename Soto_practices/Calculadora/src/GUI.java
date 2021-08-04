@@ -8,12 +8,12 @@
  *
  * @author A19A64629
  */
-public class JF_window extends javax.swing.JFrame {
+public class GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form JF_window
      */
-    public JF_window() {
+    public GUI() {
         initComponents();
     }
 
@@ -188,44 +188,60 @@ public class JF_window extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cleanActionPerformed
 
     private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
-        whiteSpacesEvoided();
-        num1 = Double.valueOf(jtxtf_num1.getText());
-        num2 = Double.valueOf(jtxtf_num2.getText());
-
-        jlbl_result.setText(String.valueOf(calculadora.sumar(num1, num2)));
+        sumar();
     }//GEN-LAST:event_btnSumarActionPerformed
 
-    private void btnRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestarActionPerformed
-        whiteSpacesEvoided();
+    private void sumar(){
+    
+        whiteSpacesAvoided();
         num1 = Double.valueOf(jtxtf_num1.getText());
         num2 = Double.valueOf(jtxtf_num2.getText());
-
-        jlbl_result.setText(String.valueOf(calculadora.restar(num1, num2)));
+        jlbl_result.setText(String.valueOf(calculadora.sumar(num1, num2)));
+    }
+    
+    
+    private void btnRestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestarActionPerformed
+        restar();
     }//GEN-LAST:event_btnRestarActionPerformed
 
-    private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicarActionPerformed
-       whiteSpacesEvoided();
+     private void restar(){
+        whiteSpacesAvoided();
         num1 = Double.valueOf(jtxtf_num1.getText());
         num2 = Double.valueOf(jtxtf_num2.getText());
-
-        jlbl_result.setText(String.valueOf(calculadora.multiplicar(num1, num2)));
+        jlbl_result.setText(String.valueOf(calculadora.restar(num1, num2)));
+    }
+    
+    
+    private void btnMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicarActionPerformed
+      multiplicar();
     }//GEN-LAST:event_btnMultiplicarActionPerformed
 
-    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
-        whiteSpacesEvoided();
+    private void multiplicar(){
+        whiteSpacesAvoided();
         num1 = Double.valueOf(jtxtf_num1.getText());
         num2 = Double.valueOf(jtxtf_num2.getText());
-
-        jlbl_result.setText(String.valueOf(calculadora.dividir(num1, num2)));
+        jlbl_result.setText(String.valueOf(calculadora.multiplicar(num1, num2)));
+    }
+    
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+        dividir();
     }//GEN-LAST:event_btnDividirActionPerformed
 
     private void jtxtf_num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtf_num1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtf_num1ActionPerformed
 
-    private void whiteSpacesEvoided()
+    private void dividir(){
+        whiteSpacesAvoided();
+        num1 = Double.valueOf(jtxtf_num1.getText());
+        num2 = Double.valueOf(jtxtf_num2.getText());
+        jlbl_result.setText(String.valueOf(calculadora.dividir(num1, num2)));
+    }
+    
+    
+    private void whiteSpacesAvoided()
     {
-        if(jtxtf_num1.getText() == "")
+        if(jtxtf_num1.getText() == "" || jtxtf_num1.getText().length() < 0)
         {
            num1=0;
         }
@@ -234,7 +250,7 @@ public class JF_window extends javax.swing.JFrame {
            num1=0;
         }
 
-        if(jtxtf_num2.getText() == "")
+        if(jtxtf_num2.getText() == "" || jtxtf_num1.getText().length() < 0)
         {
            num2=0;
         }
@@ -260,20 +276,21 @@ public class JF_window extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JF_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JF_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JF_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JF_window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JF_window().setVisible(true);
+                new GUI().setVisible(true);
             }
         });
     }

@@ -1,3 +1,7 @@
+// Edwin Alberto Roman Seberino
+// 2020-10233
+// Programacion I - Martes en la Noche
+
 public class Empleado {
     
 //    private String nombre;

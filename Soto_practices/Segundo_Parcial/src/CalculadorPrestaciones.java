@@ -262,14 +262,7 @@ public class CalculadorPrestaciones {
     
     public void calculoRegaliaPascual(){
         
-        //SI los dias no pasan de 15 días para no abusar.
-        if(empleado.getFechaSalida()[0] < 15)
-        {
-            this.regaliaPascual = ((empleado.getSalario() * (empleado.getFechaSalida()[1] - 1)) / 12);
-        }
-        else{
-            this.regaliaPascual = ((empleado.getSalario() * (empleado.getFechaSalida()[1])) / 12);
-        }
+        this.regaliaPascual = ((empleado.getSalario() * (empleado.getFechaSalida()[1])) / 12);
     }
 
     

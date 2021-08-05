@@ -17,7 +17,7 @@ public class CalculadorPrestaciones {
     private double prestacionCesantia;
     private double prestacionVacacional;
     private double prestacionPreaviso;
-    private boolean estadoPreaviso;
+    //private boolean estadoPreaviso;
     private double tiempoLaboracion[];
     
     //Metodos calculo básicos:
@@ -134,9 +134,26 @@ public class CalculadorPrestaciones {
               
     }
 
-    public void calculoPrestacionVacacional(){
-        
+    
+    public void checkEstadoVacaciones(boolean checkVaciones){
+    
+        if(checkVaciones == true){
+             //Calculo durante toda su tiempo periodo en la empresa, osea si ha tomado  las anteriores.
+            calculoPrestacionVacacional();
+        }
+        else{
+            //Calculo durante toda su tiempo en la empresa, osea nunca la ha tomado.
+            calculoPrestacionVacacionalTotal();
+        }
+    }
+    
+    //Todo el tiempo laboral
+    public void calculoPrestacionVacacionalTotal(){
+      //POR SEGURIDAD EN CASO DE UNA DOBLE EJECUCION
+      this.prestacionVacacional =0;
+ 
       for(int i=0; i<1; i++){
+        
         //Escala anual:
             if(this.tiempoLaboracion[2] > 5){
                 this.prestacionVacacional += 18;
@@ -150,37 +167,37 @@ public class CalculadorPrestaciones {
             
         //Mensual
         
-            if(this.tiempoLaboracion[1] >= 5 && this.tiempoLaboracion[1] <=5.99){
+            if(this.tiempoLaboracion[1] >= 5 && this.tiempoLaboracion[1] < 6){
                 this.prestacionVacacional += 6;
                 break;
             }
             
-            if(this.tiempoLaboracion[1] >= 6 && this.tiempoLaboracion[1] <=6.99){
+            if(this.tiempoLaboracion[1] >= 6 && this.tiempoLaboracion[1] <7){
                 this.prestacionVacacional += 7;
                 break;
             }
             
-            if(this.tiempoLaboracion[1] >= 7 && this.tiempoLaboracion[1] <=7.99){
+            if(this.tiempoLaboracion[1] >= 7 && this.tiempoLaboracion[1] <8){
                 this.prestacionVacacional += 8;
                 break;
             }
             
-            if(this.tiempoLaboracion[1] >= 8 && this.tiempoLaboracion[1] <=8.99){
+            if(this.tiempoLaboracion[1] >= 8 && this.tiempoLaboracion[1] <9){
                 this.prestacionVacacional += 9;
                 break;
             } 
             
-            if(this.tiempoLaboracion[1] >= 9 && this.tiempoLaboracion[1] <=9.99){
+            if(this.tiempoLaboracion[1] >= 9 && this.tiempoLaboracion[1] <10){
                 this.prestacionVacacional += 10;
                 break;
             }
             
-            if(this.tiempoLaboracion[1] >= 10 && this.tiempoLaboracion[1] <=10.99){
+            if(this.tiempoLaboracion[1] >= 10 && this.tiempoLaboracion[1] <11){
                 this.prestacionVacacional += 11;
                 break;
             } 
             
-            if(this.tiempoLaboracion[1] >= 11 && this.tiempoLaboracion[1] <=11.99){
+            if(this.tiempoLaboracion[1] >= 11 && this.tiempoLaboracion[1] <12){
                 this.prestacionVacacional += 12;
                 break;
             } 
@@ -188,14 +205,71 @@ public class CalculadorPrestaciones {
       }
       
       //CALCULO SEGUN LA ESCALA
-       this.prestacionVacacional = this.prestacionVacacional * this.salarioDiario;
+       this.prestacionVacacional = (this.prestacionVacacional * this.salarioDiario);
 
     }
 
+    //PARA LOS ULTIMOS AÑOS
+    public void calculoPrestacionVacacional(){
+        
+        //POR SEGURIDAD EN CASO DE UNA DOBLE EJECUCION
+        this.prestacionVacacional =0;
+        
+        //Mensual
+        for(int i=0; i<1; i++){
+       
+              
+            if(this.empleado.getFechaEntrada()[1] >= 5 && this.empleado.getFechaEntrada()[1] < 6){
+                this.prestacionVacacional += 6;
+                break;
+            }
+            
+            if(this.empleado.getFechaEntrada()[1] >= 6 && this.empleado.getFechaEntrada()[1] <7){
+                this.prestacionVacacional += 7;
+                break;
+            }
+            
+            if(this.empleado.getFechaEntrada()[1] >= 7 && this.empleado.getFechaEntrada()[1] <8){
+                this.prestacionVacacional += 8;
+                break;
+            }
+            
+            if(this.empleado.getFechaEntrada()[1] >= 8 && this.empleado.getFechaEntrada()[1] <9){
+                this.prestacionVacacional += 9;
+                break;
+            } 
+            
+            if(this.empleado.getFechaEntrada()[1] >= 9 && this.empleado.getFechaEntrada()[1] <10){
+                this.prestacionVacacional += 10;
+                break;
+            }
+            
+            if(this.empleado.getFechaEntrada()[1] >= 10 && this.empleado.getFechaEntrada()[1] <11){
+                this.prestacionVacacional += 11;
+                break;
+            } 
+            
+            if(this.empleado.getFechaEntrada()[1] >= 11 && this.empleado.getFechaEntrada()[1] <12){
+                this.prestacionVacacional += 12;
+                break;
+            }
+            
+        }
+        
+        //CALCULO SEGUN LA ESCALA
+       this.prestacionVacacional = this.prestacionVacacional * this.salarioDiario;
+    }
     
     public void calculoRegaliaPascual(){
-   
-        this.regaliaPascual = (empleado.getSalario() * empleado.getFechaSalida()[1]) / 12;
+        
+        //SI los dias no pasan de 15 días para no abusar.
+        if(empleado.getFechaSalida()[0] < 15)
+        {
+            this.regaliaPascual = (empleado.getSalario() * (empleado.getFechaSalida()[1] - 1)) / 12;
+        }
+        else{
+            this.regaliaPascual = (empleado.getSalario() * (empleado.getFechaSalida()[1])) / 12;
+        }
     }
 
     
@@ -223,5 +297,12 @@ public class CalculadorPrestaciones {
     public double getRegaliaPascual() {
         return regaliaPascual;
     }
+    
+    public String inpretacion(){
+    
+        return "Vinculo a lo largo del tiempo con la empresa:\n" + this.tiempoLaboracion[0] + " días, \n" + this.tiempoLaboracion[1]+ " meses y \n" + tiempoLaboracion[2] + " años";  
+                
+    }
 
+    
 }

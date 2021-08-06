@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 public class GUI extends javax.swing.JFrame {
 
     /**
@@ -47,6 +50,7 @@ public class GUI extends javax.swing.JFrame {
         setResizable(false);
 
         lbl_title.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_title.setText("Calculadora de Prestaciones Laborales");
 
         lbl_salario.setText("Salario:");
@@ -124,10 +128,22 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_title, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_presuspuestado1)
+                                .addGap(13, 13, 13)
+                                .addComponent(ckPreavisado))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_presuspuestado)
+                                .addGap(18, 18, 18)
+                                .addComponent(ckVacaciones))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(107, 107, 107)
@@ -166,39 +182,24 @@ public class GUI extends javax.swing.JFrame {
                                 .addGap(41, 41, 41)
                                 .addComponent(JS_meses_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(JS_anio_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_presuspuestado1)
-                                .addGap(13, 13, 13)
-                                .addComponent(ckPreavisado))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_presuspuestado)
-                                .addGap(18, 18, 18)
-                                .addComponent(ckVacaciones)))
-                        .addGap(18, 18, 18)))
+                                .addComponent(JS_anio_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnCalcular1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lbl_title)
-                .addGap(195, 195, 195))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(lbl_title)
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(lbl_title)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl_salario)
                         .addGap(9, 9, 9)
@@ -226,8 +227,10 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JS_dia_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JS_meses_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JS_anio_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
+                            .addComponent(JS_anio_fechaRetiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbl_presuspuestado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ckVacaciones))
@@ -235,12 +238,11 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(lbl_presuspuestado1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ckPreavisado)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                            .addComponent(btnCalcular1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                            .addComponent(btnLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCalcular1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -269,8 +271,7 @@ public class GUI extends javax.swing.JFrame {
     private void iniciador(){
         
         addSueldo();
-        addFechaIngreso();
-        addFechaRetiro();
+        addDate();
         calculador = new CalculadorPrestaciones(empleado);
         
         //Para verificar con el check
@@ -282,14 +283,38 @@ public class GUI extends javax.swing.JFrame {
         showInfo();
     }
     
-    private void addSueldo(){
-        double salario = Double.valueOf(this.tbox_salario.getText());
+    private void addDate(){
         
-        if(salario < 0 || "".equals(this.tbox_salario.getText())){
-            salario = 0;
+        addFechaIngreso();
+        addFechaRetiro(); 
+        
+        //Verificar sque la fecha de salida no sea ser menor que la fecha de entrada.
+        if(empleado.getFechaEntrada()[2] > (empleado.getFechaSalida()[2]))
+        {
+            JOptionPane.showMessageDialog(this,"Las fechas no deben de ser igual o la fecha de salida no debe ser menor que la fecha de entrada.");
+        }
+          
+        
+    }
+    
+    private void addSueldo(){
+        double salario;
+                    
+        if((this.tbox_salario.getText()).length() < 0 || this.tbox_salario.getText().isEmpty()){
+            
+            JOptionPane.showMessageDialog(this,"Por favor ingrese su salario o un salario valido");
+            empleado.setSalario(0);
         }
         else{
-            empleado.setSalario(salario);
+            
+            salario = Double.valueOf(this.tbox_salario.getText());
+            
+            if(salario < 0){
+                JOptionPane.showMessageDialog(this,"Por favor ingrese su salario o un salario valido");
+            }else{
+                empleado.setSalario(salario);
+            }
+            
         }
         
     }
